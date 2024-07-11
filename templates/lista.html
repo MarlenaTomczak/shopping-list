@@ -1,0 +1,37 @@
+{%extends 'baza.html'%}
+{%block content %}
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <h1>Lista Zakupów</h1>
+    <div>
+        <input type="tekst" id="przedmiot" placeholder="Wpisz przedmiot">
+        <button id="dodaj">Dodaj do listy</button>
+    </div>
+    <ul id="lista"></ul>
+
+    <script>
+        document.getElementById('dodaj').addEventListener('click', function() {
+            var itemInput = document.getElementById('przedmiot');
+            var itemText = itemInput.value.trim();
+            if (itemText !== "") {
+                var elem = document.createElement('elem');
+                elem.textContent = itemText;
+                var usun = document.createElement('button');
+                usun.textContent = 'Usuń';
+                usun.className = 'u';
+                usun.addEventListener('click', function() {
+                    elem.remove();
+                });
+
+                elem.appendChild(usun);
+                document.getElementById('lista').appendChild(elem);
+                itemInput.value = "";
+            }
+        });
+    </script>
+</body>
+</html>
+
+    {%endblock%}
