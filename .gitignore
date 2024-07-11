@@ -1,4 +1,5 @@
 projekt.sublime-workspace
+tmp/
 # Django #
 *.log
 *.pot

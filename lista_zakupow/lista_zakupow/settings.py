@@ -24,7 +24,7 @@ SECRET_KEY = 'po-e&%um2v-@q061v-3bb6vnxk8q53s6d@r*7sc(axpf!bv4&g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['marlenatom.usermd.net']
 
 
 # Application definition
