@@ -57,7 +57,7 @@ ROOT_URLCONF = 'lista_zakupow.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ 'C:/Users/Marlena/Desktop/praktyki/strona/src/templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
