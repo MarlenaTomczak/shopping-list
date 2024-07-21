@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista Zakupów</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffe6f0;
+            color: #ff69b4;
+        }
+        .btn-primary {
+            background-color: #ff69b4;
+            border-color: #ff69b4;
+        }
+        .btn-primary:hover {
+            background-color: #ff85c1;
+            border-color: #ff85c1;
+        }
+        .btn-secondary {
+            background-color: #ffb6c1;
+            border-color: #ffb6c1;
+        }
+        .btn-secondary:hover {
+            background-color: #ffc0cb;
+            border-color: #ffc0cb;
+        }
+        .btn-danger {
+            background-color: #ff4d6d;
+            border-color: #ff4d6d;
+        }
+        .btn-danger:hover {
+            background-color: #ff6e7f;
+            border-color: #ff6e7f;
+        }
+        .list-group-item {
+            background-color: #fff0f5;
+            border-color: #ff69b4;
+        }
+        .list-group-item:hover {
+            background-color: #ffe6f0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Dodaj rzecz</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Dodaj</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h1>Lista Zakupów</h1>
+            <ul class="list-group">
+                {% for item in items %}
+                    <li class="list-group-item">
+                        {{ item.name }} - {{ item.quantity }}
+                        <a href="{% url 'item_edit' item.pk %}" class="btn btn-secondary btn-sm">Edytuj</a>
+                        <a href="{% url 'item_delete' item.pk %}" class="btn btn-danger btn-sm">Usuń</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
