@@ -5,4 +5,4 @@ class Item(models.Model):
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} - {self.quantity}"
